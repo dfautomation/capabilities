@@ -830,7 +830,7 @@ class CapabilityServer(object):
                     if capability.reference_count == 0:
                         rospy.loginfo("Capability '{0}' being stopped because it has zero references"
                                       .format(capability.interface))
-                        self.__stop_capability(capability.interface)
+                        self.__free_capability_instance(capability)
 
     def __free_capability(self, capability_name, bond_id):
         if capability_name not in self.__capability_instances:
@@ -849,7 +849,11 @@ class CapabilityServer(object):
         if capability.reference_count == 0:
             rospy.loginfo("Capability '{0}' being stopped because it has zero references"
                           .format(capability.interface))
-            self.__stop_capability(capability.interface)
+            self.__free_capability_instance(capability)
+
+    def __free_capability_instance(self, capability_instance):
+        capability_instance.started_by = 'unknown'
+        self.__cleanup_graph()
 
     def handle_free_capability(self, req):
         return self.__catch_and_log(self._handle_free_capability, req)

@@ -3,7 +3,7 @@
         launch-prefix="$(find capabilities)/test/run_coverage run --append ">
     <param name="debug" value="true"/>
     <env name="ROS_PACKAGE_PATH"
-         value="$(find capabilities)/test/unit/discovery_workspaces/minimal:$(env ROS_PACKAGE_PATH)" />
+         value="$(find capabilities)/test/unit/discovery_workspaces/minimal:$(find capabilities)/test/rostest/test_server/dependent_capabilities:$(env ROS_PACKAGE_PATH)" />
   </node>
   <test test-name="client" pkg="capabilities" type="test_client.py"/>
 </launch>

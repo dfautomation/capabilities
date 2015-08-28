@@ -76,6 +76,27 @@ class Test(unittest.TestCase):
         result = wait_for_result_to_happen(expected, ['minimal_pkg/Minimal'])
         assert sorted(result) == sorted(expected), (sorted(result), sorted(expected))
 
+    def test_use_and_free_dependent_capability(self):
+        c = CapabilitiesClient()
+        c.wait_for_services(timeout=3.0)
+        # Use a cap with dependencies and wait for it to be running
+        c.use_capability('navigation_capability/Navigation', 'navigation_capability/faux_navigation')
+        expected = ['navigation_capability/Navigation', 'differential_mobile_base_capability/DifferentialMobileBase']
+        result = wait_for_result_to_happen(expected, [])
+        assert sorted(result) == sorted(expected), (sorted(result), sorted(expected))
+        # Use its dependency and free its dependency, assert it is still there
+        c.use_capability('differential_mobile_base_capability/DifferentialMobileBase', 'differential_mobile_base_capability/faux_differential_mobile_base')
+        c.free_capability('differential_mobile_base_capability/DifferentialMobileBase')
+        expected = []
+        result = wait_for_result_to_happen(expected, ['navigation_capability/Navigation', 'differential_mobile_base_capability/DifferentialMobileBase'], tries=5)
+        assert sorted(result) != sorted(expected), (sorted(result), sorted(expected))
+        # Free it and assert it goes down
+        c.free_capability('navigation_capability/Navigation')
+        expected = []
+        result = wait_for_result_to_happen(expected, ['navigation_capability/Navigation', 'differential_mobile_base_capability/DifferentialMobileBase'])
+        assert sorted(result) == sorted(expected), (sorted(result), sorted(expected))
+
+
 if __name__ == '__main__':
     rospy.init_node(TEST_NAME, anonymous=True)
     rostest.unitrun('capabilities', TEST_NAME, Test)
