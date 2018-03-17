@@ -915,7 +915,7 @@ class CapabilityServer(object):
             if req.interface not in self.__spec_index.interfaces.keys() + self.__spec_index.semantic_interfaces.keys():
                 raise RuntimeError("Capability Interface '{0}' not found.".format(req.interface))
             providers = self.__get_providers_for_interface(req.interface, allow_semantic=req.include_semantic).keys()
-            default_provider = self.__default_providers[req.interface]
+            default_provider = self.__default_providers.get(req.interface, '')
         else:
             providers = self.__spec_index.provider_names
             default_provider = ''
