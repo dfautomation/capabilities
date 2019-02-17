@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.1 (2019-02-17)
+------------------
 * Fix bug in get_providers service when default provider is not available.
 * Modify behavior of free_capability.
   So that capability with running dependants are not stopped.
