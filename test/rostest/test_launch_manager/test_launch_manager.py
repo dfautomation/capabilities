@@ -83,6 +83,7 @@ class Test(unittest.TestCase):
                 proc.pid = -1
                 lm._LaunchManager__monitor_process(proc)
         finally:
+            time.sleep(1)  # Allow time for output to be produced
             lm.stop()
 
 if __name__ == '__main__':
