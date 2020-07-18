@@ -52,6 +52,7 @@ class Test(unittest.TestCase):
     def test_invalid_default_provider(self):
         minimal_dir = os.path.join(TEST_DIR, 'unit', 'discovery_workspaces', 'minimal')
         ros_package_path = [minimal_dir]
+        rospy.set_param('~missing_default_provider_is_an_error', True)
         rospy.set_param('~defaults/minimal_pkg/Minimal', 'minimal_pkg/not_a_valid_provider')
         capability_server = server.CapabilityServer(ros_package_path)
         capability_server._CapabilityServer__load_capabilities()
@@ -62,6 +63,7 @@ class Test(unittest.TestCase):
     def test_wrong_default_provider(self):
         dc_dir = os.path.join(TEST_DIR, 'unit', 'discovery_workspaces', 'dependent_capabilities')
         ros_package_path = [dc_dir]
+        rospy.set_param('~missing_default_provider_is_an_error', True)
         rospy.set_param('~defaults/navigation_capability/Navigation',
                         'differential_mobile_base_capability/faux_differential_mobile_base')
         capability_server = server.CapabilityServer(ros_package_path)

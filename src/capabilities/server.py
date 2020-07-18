@@ -476,14 +476,26 @@ class CapabilityServer(object):
                         continue
             # Make sure the given default provider exists
             if self.__default_providers[interface] not in self.__spec_index.provider_names:
-                rospy.logerr("Given default provider '{0}' for interface '{1}' does not exist."
-                             .format(self.__default_providers[interface], interface))
-                sys.exit(-1)
+                if self.__missing_default_provider_is_an_error:
+                    rospy.logerr("Given default provider '{0}' for interface '{1}' does not exist."
+                                 .format(self.__default_providers[interface], interface))
+                    sys.exit(-1)
+                else:
+                    rospy.logwarn("Given default provider '{0}' for interface '{1}' does not exist."
+                                 .format(self.__default_providers[interface], interface))
+                    del self.__default_providers[interface]
+                    continue
             # Make sure the given provider implements this interface
             if self.__default_providers[interface] not in providers:
-                rospy.logerr("Given default provider '{0}' does not implment interface '{1}'."
-                             .format(self.__default_providers[interface], interface))
-                sys.exit(-1)
+                if self.__missing_default_provider_is_an_error:
+                    rospy.logerr("Given default provider '{0}' does not implment interface '{1}'."
+                                 .format(self.__default_providers[interface], interface))
+                    sys.exit(-1)
+                else:
+                    rospy.logwarn("Given default provider '{0}' does not implment interface '{1}'."
+                                 .format(self.__default_providers[interface], interface))
+                    del self.__default_providers[interface]
+                    continue
             # Update the interface object with the default provider
             iface = self.__spec_index.interfaces.get(
                 interface,
