@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.2 (2020-07-19)
+------------------
 * Modify CapabilityServer to not exit on invalid default provider.
 * Fix failing test.
 * Contributors: Patrick Chin
