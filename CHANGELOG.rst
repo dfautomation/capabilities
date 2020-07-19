@@ -2,6 +2,12 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Modify CapabilityServer to not exit on invalid default provider.
+* Fix failing test.
+* Contributors: Patrick Chin
+
 0.2.1 (2019-02-17)
 ------------------
 * Fix bug in get_providers service when default provider is not available.
