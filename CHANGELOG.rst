@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.3 (2021-05-24)
+------------------
 * Fix import of coverage library.
 * Contributors: Patrick Chin
 
