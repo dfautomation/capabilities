@@ -2,6 +2,11 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix import of coverage library.
+* Contributors: Patrick Chin
+
 0.2.2 (2020-07-19)
 ------------------
 * Modify CapabilityServer to not exit on invalid default provider.
