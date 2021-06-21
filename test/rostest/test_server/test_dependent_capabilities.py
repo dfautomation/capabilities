@@ -65,6 +65,7 @@ class Test(unittest.TestCase):
             resp = call_service('/capability_server/get_running_capabilities')
             result = [x.capability.capability for x in resp.running_capabilities]
         self.assertEqual(sorted(result), sorted(expected))
+        rospy.sleep(1)
         call_service('/capability_server/stop_capability',
                      'differential_mobile_base_capability/DifferentialMobileBase')
         resp = call_service('/capability_server/get_running_capabilities')

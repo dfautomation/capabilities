@@ -29,6 +29,7 @@ class Test(unittest.TestCase):
         resp = call_service('/capability_server/get_remappings', 'robot_base_pkg/Distance')
         assert resp.topics, resp
         assert ('distance', 'robot/front/distance') in [(t.key, t.value) for t in resp.topics], resp
+        rospy.sleep(1)
 
 if __name__ == '__main__':
     rospy.init_node(TEST_NAME, anonymous=True)

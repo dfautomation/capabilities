@@ -71,6 +71,7 @@ class Test(unittest.TestCase):
         expected = ['minimal_pkg/Minimal']
         result = wait_for_result_to_happen(expected, [])
         assert sorted(result) == sorted(expected), (sorted(result), sorted(expected))
+        rospy.sleep(1)
         c._bond.break_bond()
         expected = []
         result = wait_for_result_to_happen(expected, ['minimal_pkg/Minimal'])
