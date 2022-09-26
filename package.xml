@@ -24,10 +24,12 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>std_srvs</build_depend>
 
+  <run_depend>bondcpp</run_depend>
   <run_depend>bondpy</run_depend>
   <run_depend>message_runtime</run_depend>
   <run_depend>nodelet</run_depend>
   <run_depend>python-yaml</run_depend>
+  <run_depend>roscpp</run_depend>
   <run_depend>roslaunch</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>std_msgs</run_depend>
@@ -38,6 +40,7 @@
   <test_depend>python-mock</test_depend>
   <test_depend>python-pep8</test_depend>
   <test_depend>rosservice</test_depend>
+  <test_depend>rosunit</test_depend>
 
   <export>
     <architecture_independent/>

@@ -31,11 +31,18 @@ add_service_files(FILES
 
 generate_messages(DEPENDENCIES std_msgs std_srvs)
 
-catkin_package()
+catkin_package(
+  INCLUDE_DIRS include
+  CATKIN_DEPENDS bondcpp roscpp
+)
 
 ## Install scripts
 install(PROGRAMS scripts/capability_server
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+install(DIRECTORY include/capabilities/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h")
 
 if(CATKIN_ENABLE_TESTING)
     find_package(rostest REQUIRED)
@@ -52,4 +59,13 @@ if(CATKIN_ENABLE_TESTING)
     add_rostest(test/rostest/test_server/test_ros_services.test)
     add_rostest(test/rostest/test_server/test_white_black_lists.test)
     add_rostest(test/rostest/test_service_discovery/test_spec_index_from_service.test)
+
+    find_package(catkin REQUIRED COMPONENTS bondcpp roscpp)
+    include_directories(include ${catkin_INCLUDE_DIRS})
+    add_rostest_gtest(capabilities_client_test
+        test/rostest/test_client/test_client_cpp.test
+        test/rostest/test_client/test_client_module.cpp
+    )
+    target_link_libraries(capabilities_client_test ${catkin_LIBRARIES})
+    add_dependencies(capabilities_client_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 endif()

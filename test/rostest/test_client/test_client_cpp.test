@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="capabilities" name="capability_server" type="capability_server" output="screen" required="true">
+    <env name="ROS_PACKAGE_PATH"
+         value="$(find capabilities)/test/unit/discovery_workspaces/minimal:$(env ROS_PACKAGE_PATH)" />
+  </node>
+  <test test-name="client_module_cpp" pkg="capabilities" type="capabilities_client_test" />
+</launch>
