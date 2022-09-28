@@ -132,7 +132,7 @@ public:
     bond_->start();
 
     ros::Time start_time = ros::Time::now();
-    while (!bond_->waitUntilFormed(ros::Duration(0.0)))
+    while (ros::ok() && !bond_->waitUntilFormed(ros::Duration(0.0)))
     {
       if (timeout >= ros::Duration(0))
       {
