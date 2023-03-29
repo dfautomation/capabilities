@@ -2,6 +2,16 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.1 (2020-03-10)
+------------------
+* Updated ``package.xml`` to format 3 and and used condition dependencies to support Python3 (`#91 <https://github.com/osrf/capabilities/issues/91>`_)
+* Contributors: William Woodall
+
+0.3.0 (2020-03-09)
+------------------
+* Bump CMake version to avoid CMP0048 warning (`#89 <https://github.com/osrf/capabilities/issues/89>`_)
+* Contributors: Shane Loretz
+
 0.2.3 (2021-05-24)
 ------------------
 * Fix import of coverage library.

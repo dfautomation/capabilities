@@ -88,6 +88,7 @@ You can use this API as follows, (examples assume use of the
 
 """
 
+import itertools
 import os
 
 from catkin_pkg.packages import find_packages
@@ -205,7 +206,7 @@ def spec_file_index_from_package_index(package_index):
                 spec_file_index[package_name][tag].append(spec_file_path)
         # Prune packages with no specs
         if (
-                not spec_file_index[package_name]['capability_interface']
+            not spec_file_index[package_name]['capability_interface']
             and not spec_file_index[package_name]['capability_provider']
             and not spec_file_index[package_name]['semantic_capability_interface']
         ):
@@ -434,7 +435,8 @@ class SpecIndex(object):
         :returns: list of the names for all specs of all types
         :rtype: :py:obj:`list` (:py:obj:`str`)
         """
-        return self.interfaces.keys() + self.semantic_interfaces.keys() + self.providers.keys()
+        return list(itertools.chain(
+            self.interfaces.keys(), self.semantic_interfaces.keys(), self.providers.keys()))
 
     @property
     def specs(self):
