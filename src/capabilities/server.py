@@ -483,7 +483,7 @@ class CapabilityServer(object):
                     sys.exit(-1)
                 else:
                     rospy.logwarn("Given default provider '{0}' for interface '{1}' does not exist."
-                                 .format(self.__default_providers[interface], interface))
+                                  .format(self.__default_providers[interface], interface))
                     del self.__default_providers[interface]
                     continue
             # Make sure the given provider implements this interface
@@ -494,7 +494,7 @@ class CapabilityServer(object):
                     sys.exit(-1)
                 else:
                     rospy.logwarn("Given default provider '{0}' does not implment interface '{1}'."
-                                 .format(self.__default_providers[interface], interface))
+                                  .format(self.__default_providers[interface], interface))
                     del self.__default_providers[interface]
                     continue
             # Update the interface object with the default provider
