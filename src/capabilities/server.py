@@ -949,9 +949,10 @@ class CapabilityServer(object):
         return self.__catch_and_log(self._handle_get_running_capabilities, req)
 
     def _handle_get_running_capabilities(self, req):
+        running_states = ['running', 'stopping'] if req.include_stopping else ['running']
         resp = GetRunningCapabilitiesResponse()
         for instance in self.__capability_instances.values():
-            if instance.state not in ['running']:  # pragma: no cover
+            if instance.state not in running_states:  # pragma: no cover
                 continue
             running_capability = RunningCapability()
             running_capability.capability = Capability(instance.interface, instance.name)

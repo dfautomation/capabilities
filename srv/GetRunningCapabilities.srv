@@ -1,3 +1,3 @@
-
+bool include_stopping
 ---
 RunningCapability[] running_capabilities
