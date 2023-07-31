@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.2 (2023-08-01)
+------------------
 * Fix code style.
 * Add option to include stopping instances when retrieving running capabilities.
 * Break the while loop if ROS is not OK.
