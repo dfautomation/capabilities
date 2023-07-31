@@ -2,6 +2,28 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix code style.
+* Add option to include stopping instances when retrieving running capabilities.
+* Break the while loop if ROS is not OK.
+* Add client API in C++.
+* Fix tests.
+* Switch from pep8 to pycodestyle and actually run it (`#93 <https://github.com/osrf/capabilities/issues/93>`_)
+* Use itertools.chain to fix python3 test failure (`#92 <https://github.com/osrf/capabilities/issues/92>`_)
+
+  * Use itertools.chain to fix python3 test failure.
+
+* Support python3 by updating to package.xml format 3 (`#91 <https://github.com/osrf/capabilities/issues/91>`_)
+* Bump CMake version to avoid CMP0048 warning (`#89 <https://github.com/osrf/capabilities/issues/89>`_)
+
+  * Bump CMake version to avoid CMP0048 warning.
+  * travisci: remove deprecated option for pip.
+  * travisci: modernize things.
+  * Change how coverage is invoked with rostest.
+
+* Contributors: Patrick Chin, Scott K Logan, Shane Loretz, William Woodall, Wong Tze Lin
+
 0.3.1 (2020-03-10)
 ------------------
 * Updated ``package.xml`` to format 3 and and used condition dependencies to support Python3 (`#91 <https://github.com/osrf/capabilities/issues/91>`_)
