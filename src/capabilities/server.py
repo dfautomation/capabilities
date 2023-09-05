@@ -44,6 +44,7 @@ to capabilities.
 from __future__ import print_function
 
 import argparse
+import itertools
 import logging
 import os
 import sys
@@ -434,9 +435,9 @@ class CapabilityServer(object):
                     spec_index.remove_provider(provider.name)
         self.__spec_index = spec_index
         # Prune spec_file_index
-        spec_paths = spec_index.interface_paths.values() + \
-            spec_index.semantic_interface_paths.values() + \
-            spec_index.provider_paths.values()
+        spec_paths = itertools.chain(spec_index.interface_paths.values(),
+            spec_index.semantic_interface_paths.values(),
+            spec_index.provider_paths.values())
         for package_name, package_dict in self.spec_file_index.items():
             for spec_type in ['capability_interface', 'semantic_capability_interface', 'capability_provider']:
                 package_dict[spec_type][:] = [path for path in package_dict[spec_type] if path in spec_paths]
@@ -697,7 +698,7 @@ class CapabilityServer(object):
         return providers  # Could be empty
 
     def __start_capability(self, capability, preferred_provider):
-        if capability not in self.__spec_index.interfaces.keys() + self.__spec_index.semantic_interfaces.keys():
+        if capability not in itertools.chain(self.__spec_index.interfaces.keys(), self.__spec_index.semantic_interfaces.keys()):
             raise RuntimeError("Capability '{0}' not found.".format(capability))
         # If no preferred provider is given, use the default
         preferred_provider = preferred_provider or self.__default_providers[capability]
@@ -925,7 +926,7 @@ class CapabilityServer(object):
 
     def _handle_get_providers(self, req):
         if req.interface:
-            if req.interface not in self.__spec_index.interfaces.keys() + self.__spec_index.semantic_interfaces.keys():
+            if req.interface not in itertools.chain(self.__spec_index.interfaces.keys(), self.__spec_index.semantic_interfaces.keys()):
                 raise RuntimeError("Capability Interface '{0}' not found.".format(req.interface))
             providers = self.__get_providers_for_interface(req.interface, allow_semantic=req.include_semantic).keys()
             default_provider = self.__default_providers.get(req.interface, '')
