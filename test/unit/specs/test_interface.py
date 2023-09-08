@@ -80,7 +80,7 @@ test_files_map = {
 
 def test_capability_interface_from_file_path():
     default_checker = lambda x: None
-    for test_file, (checker, expected_exception, expected_exception_regex) in test_files_map.iteritems():
+    for test_file, (checker, expected_exception, expected_exception_regex) in test_files_map.items():
         checker = checker or default_checker
         print('running test on file ' + test_file)
         test_file_path = os.path.join(test_data_dir, test_file)

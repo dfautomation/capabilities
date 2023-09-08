@@ -227,7 +227,7 @@ def __process_interface_element(element_type, capability_interface, element_grou
     for group in element_groups:
         if group in ['requires', 'provides']:
             elements = element_groups[group] or {}
-            for name, element in elements.iteritems():
+            for name, element in elements.items():
                 __add_element_to_interface(name, element, group)
         else:
             __add_element_to_interface(group, element_groups[group])
