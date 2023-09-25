@@ -2,6 +2,13 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Mute yaml full load warning and fix missing basestring.
+* Fix python3 error.
+* Fix python shebangs.
+* Contributors: Farhan Mustar, Patrick Chin
+
 0.3.2 (2023-08-01)
 ------------------
 * Fix code style.
