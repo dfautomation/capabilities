@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.0 (2023-09-25)
+------------------
 * Mute yaml full load warning and fix missing basestring.
 * Fix python3 error.
 * Fix python shebangs.
