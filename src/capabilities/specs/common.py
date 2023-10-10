@@ -36,7 +36,6 @@
 """This module implements some common functions used by all the spec modules
 """
 
-from __future__ import print_function
 
 try:
     __basestring = basestring

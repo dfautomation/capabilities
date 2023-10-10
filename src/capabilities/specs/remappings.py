@@ -37,7 +37,7 @@
 This module implements a collection of remapped ROS Names
 """
 
-from __future__ import print_function
+
 
 
 class RemapCollection(object):

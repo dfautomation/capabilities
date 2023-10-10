@@ -41,7 +41,6 @@ The Capability server provides access to queries and services related
 to capabilities.
 """
 
-from __future__ import print_function
 
 import argparse
 import itertools
@@ -553,7 +552,7 @@ class CapabilityServer(object):
         # Update the capability
         capability = event.capability
         with self.__graph_lock:
-            if capability not in self.__capability_instances.keys():
+            if capability not in self.__capability_instances:
                 rospy.logerr("Unknown capability instance: '{0}'"
                              .format(capability))
                 return
@@ -979,7 +978,7 @@ class CapabilityServer(object):
 
     def _handle_get_remappings(self, req):
         interface = None
-        if req.spec in self.__capability_instances.keys():
+        if req.spec in self.__capability_instances:
             interface = self.__capability_instances[req.spec]
         else:
             providers = dict([(i.provider.name, i) for i in self.__capability_instances.values()])

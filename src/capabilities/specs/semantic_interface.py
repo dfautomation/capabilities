@@ -82,7 +82,7 @@ You can use this interface like so::
 
 """
 
-from __future__ import print_function
+
 
 import os
 import yaml
