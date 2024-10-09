@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.1 (2024-10-09)
+------------------
 * Fix regression bug, amend commit b017de3.
 * Fix python3 bug.
 * Remove obsolete imports.
