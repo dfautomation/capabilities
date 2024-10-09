@@ -2,6 +2,13 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix regression bug, amend commit b017de3.
+* Fix python3 bug.
+* Remove obsolete imports.
+* Contributors: Farhan Mustar, Patrick Chin
+
 0.4.0 (2023-09-25)
 ------------------
 * Mute yaml full load warning and fix missing basestring.
