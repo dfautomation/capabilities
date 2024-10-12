@@ -123,7 +123,7 @@ def capability_interface_from_file_path(file_path):
     :raises: :py:exc:`OSError` if the given file does not exist
     """
     with open(os.path.abspath(file_path), 'r') as f:
-        return capability_interface_from_dict(yaml.full_load(f), file_path)
+        return capability_interface_from_dict(yaml.safe_load(f), file_path)
 
 
 def capability_interface_from_file(file_handle):
@@ -137,7 +137,7 @@ def capability_interface_from_file(file_handle):
     :rtype: :py:class:`CapabilityInterface`
     :raises: :py:exc:`OSError` if the given file does not exist
     """
-    return capability_interface_from_dict(yaml.full_load(file_handle.read()), file_handle.name)
+    return capability_interface_from_dict(yaml.safe_load(file_handle.read()), file_handle.name)
 
 
 def capability_interface_from_string(string, file_name='<string>'):
@@ -153,7 +153,7 @@ def capability_interface_from_string(string, file_name='<string>'):
     :rtype: :py:class:`CapabilityInterface`
     :raises: :py:exc:`AttributeError` if the given value for string is not a str
     """
-    return capability_interface_from_dict(yaml.full_load(string), file_name)
+    return capability_interface_from_dict(yaml.safe_load(string), file_name)
 
 
 def capability_interface_from_dict(spec, file_name='<dict>'):
