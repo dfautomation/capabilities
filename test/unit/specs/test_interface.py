@@ -32,7 +32,7 @@ def check_navigation(ci):
     ci.provided_parameters
     ci.required_parameters
     check_interface(ci)
-    str(ci.topics.values()[0])
+    str(list(ci.topics.values())[0])
 
 
 def check_all_interfaces(ci):
