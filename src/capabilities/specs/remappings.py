@@ -38,8 +38,6 @@ This module implements a collection of remapped ROS Names
 """
 
 
-
-
 class RemapCollection(object):
     """Models the remappings between interfaces"""
     valid_remapping_types = ['topics', 'services', 'parameters', 'actions']

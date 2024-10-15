@@ -97,7 +97,6 @@ You can use this interface like so::
 """
 
 
-
 import difflib
 import itertools
 import os

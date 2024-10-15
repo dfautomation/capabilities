@@ -36,7 +36,6 @@
 """This module manages the launching of capabilities"""
 
 
-
 import copy
 import os
 import subprocess
