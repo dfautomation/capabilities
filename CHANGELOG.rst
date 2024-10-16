@@ -2,6 +2,13 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix linter error.
+* Fix test for Python3.
+* Replace yaml full_load with safe_load.
+* Contributors: Patrick Chin
+
 0.4.1 (2024-10-09)
 ------------------
 * Fix regression bug, amend commit b017de3.
