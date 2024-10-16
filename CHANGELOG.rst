@@ -2,8 +2,8 @@
 Changelog for package capabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.2 (2024-10-16)
+------------------
 * Fix linter error.
 * Fix test for Python3.
 * Replace yaml full_load with safe_load.
